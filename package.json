@@ -1,0 +1,43 @@
+{
+  "name": "deal-desk-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Recruiter-ready React + TypeScript deal desk workspace for pricing approvals, commercial risk review, and operator-facing revenue workflow execution.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "deal-desk",
+    "pricing",
+    "revenue-operations",
+    "frontend",
+    "portfolio"
+  ],
+  "author": "mizcausevic-dev",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.2",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.4"
+  }
+}
