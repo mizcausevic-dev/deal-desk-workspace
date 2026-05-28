@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented here.
 
+## [1.1.0] - 2026-05-28
+
+### Added
+- Skyyflow vault integration for billing-contact PII (`billing_contact_email`, `billing_contact_phone`, `executive_sponsor_email`) on every active deal.
+- AI Procurement Decision Card v0.2 reader — workspace consumes the `data_vault_targets[]` entry to learn which roles may reveal which fields.
+- `MockSkyyflowVault` browser implementation (SHA-256 via Web Crypto) with deterministic opaque tokens (`skyy_<hex16>`).
+- RBAC-aware reveal flow — three operator roles (Sales Rep · Deal Desk Lead · Finance Director). Sales Rep sees only masked tokens; Deal Desk Lead and Finance Director may click-to-reveal per the Decision Card's `reveal_roles`.
+- Audit trail panel — every reveal attempt records caller role, account, field, and disposition (`revealed`, `denied-not-authorized`, `denied-no-such-token`).
+- Unit tests for the vault, the Decision Card parser, and the full mask → switch role → reveal → audit flow.
+
+### Why this mattered
+- Pricing approvals routinely surface billing-contact PII to roles that have no business reading it. The old surface treated those fields as plain strings.
+- The Decision Card spec already declares which roles may see which fields; this release made the workspace honour that contract instead of restating it in code.
+- Same vault contract is used in the [rag-sentinel](https://github.com/mizcausevic-dev/rag-sentinel) tokenize-before-index pipeline — one Decision Card drives both server-side scanning and client-side reveal.
+
 ## [1.0.0] - 2026-05-12
 
 ### Released

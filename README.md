@@ -42,6 +42,29 @@ This workspace turns deal desk into a coordinated interface for:
 - margin and pricing guardrails
 - executive-readable commercial posture
 - product-quality UX for operator teams
+- **RBAC-aware reveal of billing-contact PII via the Skyyflow vault** (v1.1.0)
+
+---
+
+## Skyyflow vault integration (v1.1.0)
+
+Billing-contact PII (email, phone, executive sponsor email) flows through the [Skyyflow](https://www.skyflow.com) field-level vault before it ever renders. The workspace reads an [AI Procurement Decision Card v0.2](https://github.com/mizcausevic-dev/ai-procurement-decision-spec) document that declares:
+
+- which fields are vaulted (`fields_authorized`)
+- which operator roles may reveal them (`reveal_roles`)
+- where the audit trail is published (`reveal_audit_uri`)
+
+Three roles are presented in the workspace:
+
+| Role | Default view | Click-to-reveal |
+| --- | --- | --- |
+| Sales Rep | Masked Skyyflow tokens | ❌ — recorded as `denied-not-authorized` |
+| Deal Desk Lead | Masked Skyyflow tokens | ✅ — recorded as `revealed` |
+| Finance Director | Masked Skyyflow tokens | ✅ — recorded as `revealed` |
+
+Every reveal attempt — successful or denied — is captured in the **Reveal audit trail** panel at the bottom of the workspace. The same vault contract powers the [rag-sentinel](https://github.com/mizcausevic-dev/rag-sentinel) tokenize-before-index pipeline; one Decision Card drives both.
+
+The `MockSkyyflowVault` shipped with this repo is in-memory only (deterministic SHA-256 via Web Crypto). A real deployment would replace it with a hosted vault adapter behind the same `SkyyflowVault` interface.
 
 ---
 

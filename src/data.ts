@@ -40,7 +40,10 @@ export const activeDeals: Deal[] = [
     owner: "RevOps + Sales",
     stage: "Legal + finance review",
     risk: "high",
-    summary: "Strong platform fit, but discount exception plus custom payment terms need coordinated approval."
+    summary: "Strong platform fit, but discount exception plus custom payment terms need coordinated approval.",
+    billingContactEmail: "ap@northstar-cloud.example",
+    billingContactPhone: "+1 415 555 0148",
+    executiveSponsorEmail: "cfo@northstar-cloud.example"
   },
   {
     id: "deal-2",
@@ -50,7 +53,10 @@ export const activeDeals: Deal[] = [
     owner: "Channel + Finance",
     stage: "Partner structure review",
     risk: "medium",
-    summary: "Partner-led deal needs attribution clarity and a cleaner margin split before signature."
+    summary: "Partner-led deal needs attribution clarity and a cleaner margin split before signature.",
+    billingContactEmail: "billing@summit-biosystems.example",
+    billingContactPhone: "+1 617 555 0233",
+    executiveSponsorEmail: "vp.ops@summit-biosystems.example"
   },
   {
     id: "deal-3",
@@ -60,7 +66,10 @@ export const activeDeals: Deal[] = [
     owner: "CS + Sales Leadership",
     stage: "Executive escalation",
     risk: "low",
-    summary: "Expansion is healthy, but board-visible pricing requires tightly framed rationale and comms discipline."
+    summary: "Expansion is healthy, but board-visible pricing requires tightly framed rationale and comms discipline.",
+    billingContactEmail: "accounts-payable@redpoint-analytics.example",
+    billingContactPhone: "+1 312 555 0177",
+    executiveSponsorEmail: "coo@redpoint-analytics.example"
   }
 ];
 
